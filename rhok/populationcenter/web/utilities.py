@@ -8,5 +8,5 @@ def render_template(template_file_name,
                           }
     new_template_values.update(template_values)
     
-    path = os.path.join(os.path.dirname(__file__) + "/../../templates/", template_file_name)
+    path = os.path.join(os.path.dirname(__file__) + "/../../../templates/", template_file_name)
     return template.render(path, new_template_values);
