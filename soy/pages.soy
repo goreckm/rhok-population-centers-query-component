@@ -9,17 +9,20 @@
   <legend>Download CSV for a city's information</legend>
   <p>
     Enter city name: <input type="text" size="20" name="city_name" />
-    <button class="export-csv">Export CSV</button>
   </p>
+  <button class="export-csv">Export CSV</button>
 </fieldset>
 
 <fieldset class="query-section section">
   <legend>Query Population Centers</legend>
   <p>
-    Enter your coordinates: <input type="text" size="50" name="coordinates" />
-    <button class="run-query">Query</button>
+    Enter your coordinates: <input type="text" size="30" name="coordinates" />
     <a href="#" class="guess-my-location">Guess my location</a>
   </p>
+  <p>
+    Radius: <input type="text" size="10" name="radius" /> (e.g. 10 km, 1.2 miles)
+  </p>
+  <button class="run-query">Query</button>
 </fieldset>
 
 {/template}
