@@ -14,8 +14,12 @@
 {% block body %}
 <script type="text/javascript">
 $(document).ready(function() {
-	rhok.populationcenter.soy.pages.home.init($("body"));
+	var home = new rhok.populationcenter.Home();
+	home.init({ container: $("#main-content") });
 });
 </script>
+
+<div id="main-content">
+</div>
 {% endblock %}
 

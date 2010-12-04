@@ -4,7 +4,8 @@ from google.appengine.ext.webapp import template
 def render_template(template_file_name,
                     template_values = {}):
     new_template_values = { 'application': { 'name': 'Population Centers in Disaster',
-                                             'media_url' : '/media/' }
+                                             'media_url' : '/media/',
+                                             'media_generated_url' : '/media-generated/' }
                           }
     new_template_values.update(template_values)
     

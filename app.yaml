@@ -6,6 +6,9 @@ api_version: 1
 handlers:
 - url: /media
   static_dir: media
+
+- url: /media-generated
+  static_dir: target/media
   
 - url: /favicon.ico
   static_files: media/images/favicon.ico
