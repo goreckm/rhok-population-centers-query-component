@@ -19,6 +19,7 @@ rhok.populationcenter.Home = function(settings) {
 							+ position.coords.longitude);
 				});
 			}
+			return false;
 		});
 	};
 
