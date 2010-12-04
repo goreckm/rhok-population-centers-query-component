@@ -1,0 +1,34 @@
+<project name="my-emily" default="dist" basedir=".">
+	<property name="soy.js.dir" value="${basedir}/soy" />
+	<property name="js.dir" value="${basedir}/media/js" />
+	<property name="jdk6.path" value="/usr" />
+	<property name="media.path" value="${basedir}/media" />
+
+	<target name="dist" depends="soy, compile-js">
+	</target>
+
+	<target name="soy">
+		<delete>
+			<fileset dir="${basedir}/target/media/js/emily/soy/" includes="**/*.js" />
+		</delete>
+		<path id="soy.path">
+			<fileset dir="${basedir}/soy">
+				<include name="*.soy" />
+			</fileset>
+		</path>
+		<pathconvert property="soy.files" pathsep=" ">
+			<path refid="soy.path" />
+		</pathconvert>
+		<java jvm="${jdk6.path}/bin/java" jar="${basedir}/devlib/SoyToJsSrcCompiler.jar" fork="true">
+			<arg line="--outputPathFormat '${basedir}/target/media/js/emily/soy/{INPUT_FILE_NAME_NO_EXT}.js'" />
+			<arg line="${soy.files}" />
+		</java>
+	</target>
+
+	<target name="compile-js">
+		<java jvm="${jdk6.path}/bin/java" jar="${basedir}/devlib/ClosureCompiler.jar" fork="true">
+			<arg line="--js=${media.path}/js/soyutils.js" />
+			<arg line="--js_output_file=${basedir}/target/media/js/emily-combined.js" />
+		</java>
+	</target>
+</project>
