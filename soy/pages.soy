@@ -5,15 +5,21 @@
  */
 {template .home}
 
-<div class="csv-export">
+<fieldset class="export-csv-section section">
+  <legend>Download CSV for a city's information</legend>
+  <p>
+    Enter city name: <input type="text" size="20" name="city_name" />
+    <button class="export-csv">Export CSV</button>
+  </p>
+</fieldset>
 
-Enter city name: <input type="text" size="20" name="city_name"/>
-<button class="export-csv">Export CSV</button>
-
-</div>
-
-<div class="query-population-centers">
-
-</div>
+<fieldset class="query-section section">
+  <legend>Query Population Centers</legend>
+  <p>
+    Enter your coordinates: <input type="text" size="50" name="coordinates" />
+    <button class="run-query">Query</button>
+    <a href="#" class="guess-my-location">Guess my location</a>
+  </p>
+</fieldset>
 
 {/template}

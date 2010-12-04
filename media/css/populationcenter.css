@@ -9,3 +9,18 @@ body>.header {
 	line-height: 50px;
 	padding-left: 30px;
 }
+
+body>.content {
+	padding-top: 6px;
+	padding-left: 6px;
+}
+
+fieldset {
+  border-top: solid 1px lightgrey;
+  padding-left: 10px;
+}
+
+fieldset.section {
+	margin-top: 20px;
+}
+
