@@ -12,7 +12,7 @@
        <fileset dir="${basedir}/target/media/js/soy/" includes="**/*.js" />
      </delete>
   </target>
-	
+
 	<target name="soy">
 		<path id="soy.path">
 			<fileset dir="${basedir}/soy">
