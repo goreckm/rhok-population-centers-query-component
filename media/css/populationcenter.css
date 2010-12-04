@@ -1,0 +1,11 @@
+@import url("reset.css");
+
+body>.header {
+	height: 50px;
+	font-size: 20pt;
+	background-color: orange;
+	color: white;
+	font-weight: bold;
+	line-height: 50px;
+	padding-left: 30px;
+}

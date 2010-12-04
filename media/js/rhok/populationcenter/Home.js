@@ -7,6 +7,9 @@ rhok.populationcenter.Home = function(settings) {
 	self.init = function(settings) {
 		var html = rhok.populationcenter.soy.pages.home({});
 		settings.container.html(html);
+		
+		
+		
 	};
 	
 };

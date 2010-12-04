@@ -21,7 +21,6 @@
     <script src="{{ application.media_url }}js/soyutils.js"></script>
     <script src="{{ application.media_generated_url }}js/soy/pages.js"></script>
     <script src="{{ application.media_url }}js/rhok/populationcenter/Namespaces.js"></script>
-    <script src="{{ application.media_url }}js/rhok/populationcenter/Home.js"></script>
 
     {% block js %}
     {% endblock %}
@@ -30,7 +29,12 @@
     {% endblock %}
    </head>
   <body>
-    {% block body %}
+    <div class="header">
+      Population Centers in Disaster
+    </div>
+    <div class="content">
+    {% block content %}
     {% endblock %}
+    </div>
   </body>
 </html>
