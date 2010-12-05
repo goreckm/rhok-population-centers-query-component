@@ -4,7 +4,7 @@ Population Centres in Disaster
 Description
 -----------
 
-Scrapes one of geonames locations database or geomind world cities database, in order to find city names, locations and their population. Can output the resulting dataset as either a comma seperated values (CSV) file or a google fusion table.
+Scrapes one of either the GeoNames (www.geonames.org) locations database or MaxMind (www.maxmind.com) world cities database, in order to find city names, locations and their population. Can output the resulting dataset as either a comma seperated values (CSV) file or a google fusion table.
 
 Requirements
 -------------
