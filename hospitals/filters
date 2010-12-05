@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# the data for the amenity-hospital.osm can be pbtained by going to the URL:
+#
+# http://xapi.openstreetmap.org/api/0.6/*[amenity=hospital]
+# 
+# A similar dataset can be obtained from:
+#
+# http://xapi.openstreetmap.org/api/0.6/*[building=hospital]
+
+grep -f filter.txt amenity-hospital.osm > names.txt
+
+cat names.txt | awk '/<node/{print "#name# ", $3, $4}; 1' | awk -F \' '/<tag/{print ("#name# " $4)}; 1' | \
+awk '/name/{print $0};' | awk '!/<tag/{print $0};' | awk '/#name#/{gsub (/#name#/, " ")}; 1' | \
+awk '/lat/ {print d; d="" }{ d=d" "$0} END { print d; d="" }' | awk -F \' '{print ($5 "," $2 "," $4)};' | \
+awk '{sub(/^[ \t]+/, "")};1'
