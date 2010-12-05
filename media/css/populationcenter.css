@@ -24,8 +24,17 @@ fieldset.section {
 	margin-top: 20px;
 }
 
+#population-centers-result-table {
+	height: 250px;
+	width: 300px;
+	float: left;
+  margin: 6px;
+  margin-right: 0px;
+}
+
 #population-centers-map {
-	width: 800px;
-	height: 500px;
-	margin: 10px;
+	width: 600px;
+	float: right;
+	height: 250px;
+	margin: 6px;
 }

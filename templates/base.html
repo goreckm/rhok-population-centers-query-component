@@ -31,6 +31,10 @@
     <div class="header">
       Population Centers in Disaster
     </div>
+    {% if signoutUrl %}
+    <div style="float: right; margin-right: 6px;"><a href="{{ signoutUrl }}">Sign out</a></div>
+    {% endif %}
+    
     <div class="content">
     {% block content %}
     {% endblock %}
