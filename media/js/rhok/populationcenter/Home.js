@@ -2,6 +2,7 @@ rhok.populationcenter.Home = function(settings) {
 
 	var self = this;
 	self.settings = settings;
+	var FUSTION_TABLE = 34109; // 341268; //34109;
 
 	self.init = function(settings) {
 		var html = rhok.populationcenter.soy.pages.home( {});
@@ -12,6 +13,8 @@ rhok.populationcenter.Home = function(settings) {
 		self.$coordinatesInput = $("input[name='coordinates']",
 				self.$querySection);
 		self.$populationCentersMap = $("#population-centers-map");
+		self.$radius = $("input[name='radius']", self.$querySection);
+		self.$runQuery = $(".run-query", self.$querySection);
 
 		var myOptions = {
 			zoom : 6,
@@ -56,7 +59,7 @@ rhok.populationcenter.Home = function(settings) {
 				if (errorFlag == true) {
 					alert("Geolocation service failed.");
 				} else {
-					alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+					alert("Your browser doesn't support geolocation.");
 				}
 			}
 
@@ -70,10 +73,28 @@ rhok.populationcenter.Home = function(settings) {
 					animation : google.maps.Animation.DROP,
 					title : center.latitude + "," + center.longitude
 				});
+				var circle = new CircleOverlay(map, map.getCenter(), 1,
+						"#336699", 1, 1, '#336699', 0.25);
+				map.addOverlay(circle);
 			}
 
 			return false;
 		});
+
+		self.$runQuery
+				.click(function() {
+					var url = '/ft-query';
+					var requestData = {
+						query : 'SELECT City, Population, Latitude, Longitude FROM ' + FUSTION_TABLE
+					};
+					$.getJSON(url, requestData, function(jsonData) {
+						var html = rhok.populationcenter.soy.pages
+								.populationcenters_result( {
+									result : jsonData
+								});
+						$("#population-centers-result-table").html(html);
+					});
+				});
 
 	};
 

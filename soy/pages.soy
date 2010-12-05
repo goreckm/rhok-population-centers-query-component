@@ -5,14 +5,6 @@
  */
 {template .home}
 
-<fieldset class="export-csv-section section">
-  <legend>Download CSV for a region</legend>
-  <p>
-    Enter region: <input type="text" size="20" name="city_name" />
-  </p>
-  <button class="export-csv">Export CSV</button>
-</fieldset>
-
 <fieldset class="query-section section">
   <legend>Population Centers</legend>
   <p>
@@ -25,6 +17,34 @@
   <button class="run-query">Query</button>
 </fieldset>
 
+<div id="population-centers-result-table"></div>
+
 <div id="population-centers-map"></div>
 
+{/template}
+
+/**
+ * population centers result table
+ *
+ * @param result
+ */
+{template .populationcenters_result}
+<table>
+  <thead>
+    <th>City</th>
+    <th>Population</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </thead>
+  <tbody>
+    {foreach $row in $result}
+      <tr>
+        <td>{$row.city}</td>
+        <td>{$row.population}</td>
+        <td>{$row.latitude}</td>
+        <td>{$row.longitude}</td>
+      </tr>
+    {/foreach}
+  </tbody>
+</table>
 {/template}

@@ -19,7 +19,8 @@ from google.appengine.ext.webapp import util
 from rhok.populationcenter.web import requesthandlers
 
 def main():
-    application = webapp.WSGIApplication([('/', requesthandlers.HomeHandler)],
+    application = webapp.WSGIApplication([('/', requesthandlers.HomeHandler),
+                                          ('/ft-query', requesthandlers.FusionTableQuery)],
                                          debug=True)
     util.run_wsgi_app(application)
 
