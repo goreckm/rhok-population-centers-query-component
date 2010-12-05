@@ -1,3 +1,32 @@
-Just a placeholder for now.
+Population Centres in Disaster
+------------------------------
 
-testing 123.
+Description
+-----------
+
+Scrapes one of geonames locations database or geomind world cities database, in order to find city names, locations and their population. Can output the resulting dataset as either a comma seperated values (CSV) file or a google fusion table.
+
+Requirements
+-------------
+
+- Python
+- Internet Connection
+- Google Account (For Fusion Tables Export ONLY. This is not required for csv export).
+
+Instructions
+------------
+
+Download the latest version of the code from:
+git@github.com:goreckm/rhok-population-centers-query-component.git
+
+In a terminal or command line, navigate to:
+
+rhok-population-centers-query-component/rhok/populationcenter/query
+
+and run:
+
+python PopulationCenters.py
+
+You will be promted to choose your datasource, whether to output the results as a CSV file or into a Fusion Table, as well as a file name or table name to export to.
+
+
