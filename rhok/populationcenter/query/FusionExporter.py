@@ -2,14 +2,15 @@ import ftclient
 import urllib2
 
 class FusionExporter:
-	def __init__(self, table_id):
+	def __init__(self, table_name):
 		auth_token = ftclient.GetAuthToken()
 		self.ft = ftclient.FTClient(auth_token)
 		
 		self.max_per_batch = 500
 		self.col_keys = ['City', 'Population', 'Location']
+		self.table_id = self.ft.createTable(table_name, 
+			[('City', 'STRING'), ('Population', 'NUMBER'), ('Location', 'LOCATION')])
 		self.col_keys = ','.join(["'%s'" % s for s in self.col_keys])
-		self.table_id = table_id
 		self.clear_batch()
 
 	def write_line(self, row):
@@ -44,7 +45,7 @@ class FusionExporter:
 					print e2
 		self.clear_batch()
 		#exit after first batch upload
-		exit()
+		#exit()
 
 	def close(self):
 		self.write_batch()
